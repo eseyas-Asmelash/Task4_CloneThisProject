@@ -245,7 +245,9 @@ namespace SkalProj_Datastrukturer_Minne
                 }
             }
         }
-
+        /// <summary>
+        /// Examines if the parathensis are closed correctly
+        /// </summary>
         static void CheckParanthesis()
         {
             
@@ -287,6 +289,9 @@ namespace SkalProj_Datastrukturer_Minne
 
             }
         }
+        /// <summary>
+        /// recursive method 
+        /// </summary>
         static void Recursion()
         {
             var rec = new RecursiveAndIteration();
@@ -333,6 +338,9 @@ namespace SkalProj_Datastrukturer_Minne
 
             }
         }
+        /// <summary>
+        /// interative method 
+        /// </summary>
         static void Iteration()
         {
             var rec = new RecursiveAndIteration();
