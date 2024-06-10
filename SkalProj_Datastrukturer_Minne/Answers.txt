@@ -1,0 +1,61 @@
+﻿-	Stacken och heapen är två områden i minnet som används på olika sätt:
+
+	Stacken: Används för att hantera programflöde och för att lagra lokala variabler och funktionsanrop. 
+	Den använder sig av en Last In, First Out (LIFO) -struktur, vilket innebär att den senast tillagda 
+	variabeln eller funktionen är den första som tas bort.
+	Exempel: När du anropar en funktion läggs dess lokala variabler och returadress till funktionen på 
+	stacken. När funktionen är klar tas dessa variabler bort från stacken och kontrollen återgår till den 
+	tidigare kontexten.
+
+	Heapen: Används för att lagra dynamiskt allokerade data och objekt som inte kan bestämmas vid 
+	kompileringstid. Data på heapen överlever längre än funktionen som skapade dem och måste manuellt tas
+	bort för att undvika minnesläckor.
+	Exempel: När du skapar en objektinstans med nyckelordet "new" allokeras den på heapen. Den kan sedan 
+	användas över hela programmet och måste tas bort manuellt när den inte längre behövs.
+
+
+-	Value types och reference types är två olika sätt att lagra och hantera data i programmeringsspråk. 
+	Skillnaden mellan dem ligger i hur de lagras och hanteras i minnet:
+
+	Value Types: Lagrar själva värdet direkt i minnet där variabeln är deklarerad. När en variabel 
+	tilldelas ett värde av en value type, kopieras värdet direkt till minnet.
+	Exempel på value types inkluderar grundläggande datatyper som int, float, char, 
+	samt strukturer (structs) i språk som C#.
+
+	Reference Types: Lagrar en referens till värdet i minnet istället för själva värdet.
+	När en variabel tilldelas ett värde av en reference type, lagras en referens till värdet i minnet.
+	Exempel på reference types inkluderar klasser, arrayer och objekt i språk som C# och Java.
+
+-	Värdena i den första metoden är av valuetyp (int) och kodaren ändrade inte värdet på x, 
+	x är oförändrat (kodaren ändrade bara värdet på y).
+	Värdena i den andra metoden är av referenstyp (class) och eftersom två instanserna är lika,
+	om vi ändrar en, kommer ändringarna att påverka både x och y.
+
+övning 1
+
+-	Listans kapacitet ökar när antalet element i listan överskrider den nuvarande kapaciteten. 
+	När detta händer, allokerar listan en ny underliggande array med större kapacitet för att rymma 
+	de nya elementen.
+
+-	När listans kapacitet ökar, fördubblas den vanligtvis. Exakt hur mycket kapaciteten ökar kan bero
+	på implementationen i det specifika programmeringsspråket och biblioteket, men en vanlig strategi är
+	att fördubbla kapaciteten varje gång den nuvarande kapaciteten överskrids.
+
+-	Att öka kapaciteten varje gång ett element läggs till skulle vara ineffektivt och leda till en hög 
+	prestandakostnad på grund av frekvent allokering och kopiering av arrayens innehåll. Genom att öka 
+	kapacitetenexponentiellt (t.ex. fördubbla den) minskar antalet gånger detta behöver göras, vilket 
+	förbättrar prestandan.
+
+-	Nej, kapaciteten minskar normalt sett inte automatiskt när element tas bort från listan. Kapaciteten är 
+	ett mått på det totala utrymme som för närvarande är allokerat för listan, och detta utrymme behålls 
+	även om element tas bort för att undvika kostnaderna för frekvent omallokering.
+
+-	Det kan vara fördelaktigt att använda en egendefinierad array istället för en lista när:
+	- Du vet i förväg exakt hur många element du kommer att behöva lagra.
+	- listans dynamiska storlekshantering.
+	- Du behöver direkt tillgång till arrayens minne för optimering.
+
+
+-	Den iterativa metoden är mest minnesvänlig eftersom den använder en konstant mängd minne och undviker 
+	de potentiellt höga kostnaderna för stackminnet som rekursion kräver. Iteration är särskilt fördelaktig
+	för stora indata eller där prestanda och minneshantering är kritiska faktorer.
