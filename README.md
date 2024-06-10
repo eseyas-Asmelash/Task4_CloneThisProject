@@ -50,4 +50,17 @@ We say that a string is well-formed if all parentheses that are opened are also 
 For example, ({}) is well-formed, but not ({)}. Furthermore, a string may contain other characters; for example, "List<int> lista = new List<int>(){2, 3, 4};" is well-formed. Thus, we are only concerned with parentheses!
 
 Create functionality to check a well-formed string on paper using your newfound knowledge. You should use one or more of the data structures we have just discussed. Which data structure do you use?
-Implement the functionality in the CheckParentheses method. Let the program read a string from the user and return
+Implement the functionality in the CheckParentheses method.
+
+Exercise 5: Recursion
+
+Illustrate the progressions for RecursiveOdd(1), RecursiveOdd(3), and RecursiveOdd(5) on paper to understand the recursive loop.
+Write a RecursiveEven(int n) method that recursively calculates the nth even number.
+Implement a recursive function to calculate numbers in the Fibonacci sequence: (f(n) = f(n-1) + f(n-2))
+
+Exercise 6: Iteration
+
+Illustrate on paper the progressions for IterativeOdd(1), IterativeOdd(3), and IterativeOdd(5) to understand the iteration.
+Create an IterativeEven(int n) function to iteratively calculate the nth even number.
+Implement an iterative version of the Fibonacci calculator.
+
