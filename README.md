@@ -2,6 +2,8 @@
 
 
 Exercise 1: ExamineList()
+
+
 A list is an abstract data structure that can be implemented in several ways. Unlike arrays, lists do not have a predetermined size; instead, the size increases as the number of elements in the list increases. However, the List class has an underlying array that you will now investigate. To see the size of the list's underlying array, the Capacity method in the List class is used.
 
 Complete the implementation of the ExamineList method so that the investigation can be conducted.
@@ -13,6 +15,8 @@ When is it advantageous to use a custom array instead of a list?
 
 
 Exercise 2: ExamineQueue()
+
+
 The queue data structure (implemented in the Queue class) operates according to the First In First Out (FIFO) principle. That is, the element that is added first will be the one removed first.
 
 Simulate the following queue on paper:
@@ -28,6 +32,8 @@ Implement the ExamineQueue method. The method should simulate how a queue works 
 
 
 Exercise 3: ExamineStack()
+
+
 Stacks are similar to queues, but a major difference is that stacks operate on the First In Last Out (FILO) principle. This means that the element pushed in first is the one popped out last.
 
 Once again, simulate the grocery store queue on paper. This time using a stack. Why is it not a smart choice to use a stack in this scenario?
@@ -35,6 +41,8 @@ Implement a ReverseText method that reads a string from the user and, using a st
 
 
 Exercise 4: CheckParenthesis()
+
+
 You should now have sufficient knowledge of the aforementioned data structures to solve the following problem.
 We say that a string is well-formed if all parentheses that are opened are also correctly closed. The correct opening and closing of parentheses are dictated by the following rules:
 • ), }, ] can only occur after their respective (, {, [
