@@ -1,4 +1,6 @@
 "Exercise 4 - Memory Management"
+
+
 Exercise 1: ExamineList()
 A list is an abstract data structure that can be implemented in several ways. Unlike arrays, lists do not have a predetermined size; instead, the size increases as the number of elements in the list increases. However, the List class has an underlying array that you will now investigate. To see the size of the list's underlying array, the Capacity method in the List class is used.
 
