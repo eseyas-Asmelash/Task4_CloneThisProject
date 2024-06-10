@@ -66,5 +66,6 @@ namespace SkalProj_Datastrukturer_Minne
             }
             return b;
         }
+
     }
 }
