@@ -59,3 +59,4 @@
 -	Den iterativa metoden är mest minnesvänlig eftersom den använder en konstant mängd minne och undviker 
 	de potentiellt höga kostnaderna för stackminnet som rekursion kräver. Iteration är särskilt fördelaktig
 	för stora indata eller där prestanda och minneshantering är kritiska faktorer.
+
