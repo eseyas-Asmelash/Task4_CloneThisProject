@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 
 namespace SkalProj_Datastrukturer_Minne
 {
@@ -10,6 +11,8 @@ namespace SkalProj_Datastrukturer_Minne
         /// <param name="args"></param>
         static void Main()
         {
+            var r = new RecursiveAndIteration();
+            
 
             while (true)
             {
@@ -18,6 +21,8 @@ namespace SkalProj_Datastrukturer_Minne
                     + "\n2. Examine a Queue"
                     + "\n3. Examine a Stack"
                     + "\n4. CheckParenthesis"
+                    + "\n5. Recursive"
+                    + "\n6. Iterative"
                     + "\n0. Exit the application");
                 char input = ' '; //Creates the character input to be used with the switch-case below.
                 try
@@ -43,10 +48,12 @@ namespace SkalProj_Datastrukturer_Minne
                     case '4':
                         CheckParanthesis();
                         break;
-                    /*
-                     * Extend the menu to include the recursive 
-                     * and iterative exercises.
-                     */
+                    case '5':
+                        Recursion();
+                        break;
+                    case '6':
+                        Iteration();
+                        break;
                     case '0':
                         Environment.Exit(0);
                         break;
@@ -72,6 +79,56 @@ namespace SkalProj_Datastrukturer_Minne
              * Below you can see some inspirational code to begin working.
             */
 
+            List<string> myList = new List<string>();
+            bool continuedLoop = true;
+
+            while (continuedLoop)
+            {
+                Console.WriteLine("Enter '+name' to add or '-name' to remove from the list. Type 'exit' to return to main menu.");
+                string input = Console.ReadLine()!;
+
+                if (input.ToLower() == "exit")
+                {
+                    continuedLoop = false;
+                    continue;
+                }
+
+                if (input.Length > 1)
+                {
+                    char operation = input[0];
+                    string name = input.Substring(1);
+
+                    switch (operation)
+                    {
+                        case '+':
+                            myList.Add(name);
+                            Console.WriteLine($"Added {name}");
+                            break;
+                        case '-':
+                            if (myList.Contains(name))
+                            {
+                                myList.Remove(name);
+                                Console.WriteLine($"Removed {name}");
+                            }
+                            else
+                            {
+                                Console.WriteLine($"{name} not found in the list");
+                            }
+                            break;
+                        default:
+                            Console.WriteLine("Please use only '+' or '-' followed by a name.");
+                            break;
+                    }
+
+                    Console.WriteLine($"Count: {myList.Count}, Capacity: {myList.Capacity}");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Please use '+' or '-' followed by a name.");
+                }
+            }
+
+
             //List<string> theList = new List<string>();
             //string input = Console.ReadLine();
             //char nav = input[0];
@@ -89,7 +146,50 @@ namespace SkalProj_Datastrukturer_Minne
              * Loop this method untill the user inputs something to exit to main menue.
              * Create a switch with cases to enqueue items or dequeue items
              * Make sure to look at the queue after Enqueueing and Dequeueing to see how it behaves
+             * 
             */
+            Queue<string> myQ = new Queue<string>();
+            bool continuedLoop = true;
+
+            while (continuedLoop)
+            {
+                Console.WriteLine("Enter '+name' to add to cashier queue or '-' to remove from queue" +
+                    ". Type 'exit' to return to main menu.");
+                string input = Console.ReadLine()!;
+
+                if (input.ToLower() == "exit")
+                {
+                    continuedLoop = false;
+                    continue;
+                }
+
+                if (input.Length > 0)
+                {
+                    char operation = input[0];
+                    string name = input.Substring(1);
+
+                    switch (operation)
+                    {
+                        case '+':
+                            myQ.Enqueue(name);
+                            Console.WriteLine($"{name} added to the queue");
+                            break;
+                        case '-':
+                            if (myQ.Count > 0)
+                            {
+                                var str = myQ.Dequeue();
+                                Console.WriteLine($"{str} Removed from queue");
+                            }
+                            else
+                            {
+                                Console.WriteLine($"Queue is empty");
+                            }
+                            break;
+                    }
+                    if(myQ.Count > 0)
+                        Console.WriteLine($"Count: {myQ.Count}, first on queue: {myQ.Peek()}");
+                }
+            }
         }
 
         /// <summary>
@@ -102,18 +202,185 @@ namespace SkalProj_Datastrukturer_Minne
              * Create a switch with cases to push or pop items
              * Make sure to look at the stack after pushing and and poping to see how it behaves
             */
+            Stack<string> myStack = new Stack<string>();
+            bool continuedLoop = true;
+
+            while (continuedLoop)
+            {
+                Console.WriteLine("Enter '+name' to add to stack or '-' to remove from stack" +
+                    ". Type 'exit' to return to main menu.");
+                string input = Console.ReadLine()!;
+
+                if (input.ToLower() == "exit")
+                {
+                    continuedLoop = false;
+                    continue;
+                }
+
+                if (input.Length > 0)
+                {
+                    char operation = input[0];
+                    string name = input.Substring(1);
+
+                    switch (operation)
+                    {
+                        case '+':
+                            myStack.Push(name);
+                            Console.WriteLine($"{name} added to the queue");
+                            break;
+                        case '-':
+                            if (myStack.Count > 0)
+                            {
+                                var str = myStack.Pop();
+                                Console.WriteLine($"{str} Removed from queue");
+                            }
+                            else
+                            {
+                                Console.WriteLine($"stack is empty");
+                            }
+                            break;
+                    }
+                    if (myStack.Count > 0)
+                        Console.WriteLine($"Count: {myStack.Count}, last on stack: {myStack.Peek()}");
+                }
+            }
         }
 
         static void CheckParanthesis()
         {
-            /*
-             * Use this method to check if the paranthesis in a string is Correct or incorrect.
-             * Example of correct: (()), {}, [({})],  List<int> list = new List<int>() { 1, 2, 3, 4 };
-             * Example of incorrect: (()]), [), {[()}],  List<int> list = new List<int>() { 1, 2, 3, 4 );
-             */
+            
+            bool continuedLoop = true;
 
+            while (continuedLoop)
+            {
+                Stack<char> stack = new Stack<char>();
+                Console.WriteLine("Enter paranthesis to check or type exit to return to main menu");
+                string input = Console.ReadLine()!;
+
+                if (input.ToLower() == "exit")
+                {
+                    continuedLoop = false;
+                    continue;
+                }
+                foreach (var item in input)
+                {
+                    if (item == '{' || item == '[' || item == '(')
+                    {
+                        stack.Push(item);
+                    }
+                    else if ((item == '}' && stack.Count > 0 && stack.Peek() == '{') ||
+                       (item == ']' && stack.Count > 0 && stack.Peek() == '[') ||
+                       (item == ')' && stack.Count > 0 && stack.Peek() == '('))
+                    {
+                        stack.Pop();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Wrong paranthesis closing");
+                    }
+                }
+
+                
+                Console.WriteLine(stack.Count == 0 ? "Rightparanthesis closing" 
+                                                     : "Wrong paranthesis closing");
+  
+
+            }
+        }
+        static void Recursion()
+        {
+            var rec = new RecursiveAndIteration();
+            bool continuedLoop = true;
+            while (continuedLoop)
+            {
+                Console.WriteLine("""
+                    Please select the type of recursion (1, 2, 3) of your choice 
+                    followed by the number you want to as input 
+                    for example "1 9" means case 1 (recursive odd) with input 9
+                    """
+                                    
+                    + "\n1. Recursive Odd"
+                    + "\n2. Recursive Even"
+                    + "\n3. Recursive Fibonacci"
+                    + "\nType exit to get back to the Main menu");
+
+                string input = Console.ReadLine()!.Replace(" ", "");
+                if (input.Length > 1)
+                {
+                    char sel = input[0];
+                    int.TryParse(input.Substring(1), out int n);
+                    switch (sel)
+                    {
+                        case '1':
+                            Console.WriteLine(rec.RecursiveOdd(n));
+                            break;
+                        case '2':
+                            Console.WriteLine(rec.RecursiveEven(n));
+                            break;
+                        case '3':
+                            Console.WriteLine(rec.Fibonacci(n));
+                            break;
+                        default:
+                            Console.WriteLine("Please enter some valid input (0, 1, 2, 3)");
+                            break;
+                    }
+                }
+                if (input.ToLower() == "exit")
+                {
+                    continuedLoop = false;
+                    continue;
+                }
+
+            }
+        }
+        static void Iteration()
+        {
+            var rec = new RecursiveAndIteration();
+            bool continuedLoop = true;
+            while (continuedLoop)
+            {
+                Console.WriteLine("""
+                    Please select the type of Iteration (1, 2, 3) of your choice 
+                    followed by the number you want to as input 
+                    for example "1 9" means case 1 (iterative odd) with input 9
+                    """
+
+                    + "\n1. Iterative Odd"
+                    + "\n2. Iterative Even"
+                    + "\n3. Iterative Fibonacci"
+                    + "\nType exit to get back to the Main menu");
+
+                string input = Console.ReadLine()!.Replace(" ", "");
+                if (input.Length > 1)
+                {
+                    char sel = input[0];
+                    int.TryParse(input.Substring(1), out int n);
+                    switch (sel)
+                    {
+                        case '1':
+                            Console.WriteLine(rec.IterativeOdd(n));
+                            break;
+                        case '2':
+                            Console.WriteLine(rec.IterativeEven(n));
+                            break;
+                        case '3':
+                            Console.WriteLine(rec.IterativeFibonacci(n));
+                            break;
+                        default:
+                            Console.WriteLine("Please enter some valid input (0, 1, 2, 3)");
+                            break;
+                    }
+                }
+                if (input.ToLower() == "exit")
+                {
+                    continuedLoop = false;
+                    continue;
+                }
+
+            }
         }
 
     }
 }
+
 
